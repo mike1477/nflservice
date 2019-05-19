@@ -1,0 +1,30 @@
+﻿@using SD.WEB.ViewModels
+
+@model StadiumsViewModel
+@{
+    ViewBag.Title = "GetAllStadiums";
+}
+
+<h3>Entire list of stadiums in the NFL</h3>
+
+
+<table style="width:100%" class="table">
+    <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>PlayingSurface</th>
+        <th>Capacity</th>
+    </tr>
+        @foreach (var stadium in Model.Stadiums)
+        {
+        <tr>
+            <td>@stadium.Name</td>
+            <td>@stadium.City</td>
+            <td>@stadium.PlayingSurface</td>
+            <td>@stadium.Capacity</td>
+        </tr>
+        }
+
+        
+    </table>
+
