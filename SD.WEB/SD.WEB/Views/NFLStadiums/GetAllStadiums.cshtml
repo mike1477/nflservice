@@ -21,7 +21,7 @@
             <td>@stadium.Name</td>
             <td>@stadium.City</td>
             <td>@stadium.PlayingSurface</td>
-            <td>@Html.ActionLink("View Stadium", "GetStadium",new {id = stadium.StadiumID })</td>
+            <td>@Html.ActionLink("Location", "GetStadium",new {id = stadium.StadiumID }, new { @class = "navbar-brand btn-success" })</td>
         </tr>
         }
 

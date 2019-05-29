@@ -5,7 +5,20 @@
     ViewBag.Title = "Stadium";
 }
 
-<h2>Stadium</h2>
-<p>
-    <img src="@Model.GoogleImage" />
-</p>
+
+
+
+<div class="row">
+    <div class="col-sm-6 col-md-6">
+        <h2>Stadium</h2>
+        <p>@Html.ActionLink("Go Back To Stadiums", "GetAllStadiums", "NFLStadiums", new { area = "" }, new { @class = "navbar-brand btn btn-primary" })</p>
+        <div class="thumbnail">
+            <img src="@Model.GoogleImage" alt="Google Map">
+            <div class="caption">
+                <h3>@Model.Stadium.Name</h3>
+                <p>State : @Model.Stadium.State</p>
+                <p>Playing Surface : @Model.Stadium.PlayingSurface</p>
+            </div>
+        </div>
+    </div>
+</div>
