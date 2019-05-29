@@ -17,9 +17,16 @@ namespace SD.WEB.Services
         {
             _client = new NFLv3StatsClient(SportDataKey);
         }
+
         public List<Stadium> GetAllStadium()
         {
             return _client.GetStadiums();
+        }
+
+        public Stadium GetStadiumById(int StadiumId)
+        {
+            var stadiums = _client.GetStadiums();
+            return stadiums.FirstOrDefault(s => s.StadiumID == StadiumId);
         }
     }
 }

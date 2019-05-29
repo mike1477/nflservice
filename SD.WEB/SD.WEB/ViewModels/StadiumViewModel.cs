@@ -6,9 +6,9 @@ using FantasyData.Api.Client.Model.NFLv3;
 
 namespace SD.WEB.ViewModels
 {
-    public class StadiumsViewModel
+    public class StadiumViewModel
     {
-        public List<Stadium> Stadiums { get; set; }
-       
+        public Stadium Stadium { get; set; }
+        public string GoogleImage { get; set; }
     }
 }
