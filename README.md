@@ -4,4 +4,4 @@ This it a ASP.NET MVC application. In the application is a service that uses the
 View on youtube at https://www.youtube.com/watch?v=clvBLRvZ7aU&feature=youtu.be
 
 # Set Up
-Two API keys need to be added to the web.cofig file.Inside the appsettings section add your fantasydata API key and the google maps API key. After the keys are added the application should build without a problem.
+Two API keys need to be added to the web.config file.Inside the appsettings section add your fantasydata API key and the google maps API key. After the keys are added the application should build without a problem.
