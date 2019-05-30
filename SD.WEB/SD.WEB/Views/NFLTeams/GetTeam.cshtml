@@ -1,0 +1,21 @@
+﻿@using SD.WEB.ViewModels
+
+@model TeamViewModel
+@{
+    ViewBag.Title = "Team";
+}
+
+
+
+
+<div class="row">
+    <div class="col-sm-6 col-md-6">
+        <h2>Team</h2>
+        <p>@Html.ActionLink("Go Back To Teams", "GetAllTeams", "NFLTeams", new { area = "" }, new { @class = "navbar-brand btn btn-primary" })</p>
+        <div>
+            <h3>Team Name : @Model.Team.Name</h3>
+            <p>Coach : @Model.Team.HeadCoach</p>
+        </div>
+    </div>
+</div>
+

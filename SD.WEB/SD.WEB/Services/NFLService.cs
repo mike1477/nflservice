@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using FantasyData.Api.Client;
@@ -27,6 +28,17 @@ namespace SD.WEB.Services
         {
             var stadiums = _client.GetStadiums();
             return stadiums.FirstOrDefault(s => s.StadiumID == StadiumId);
+        }
+
+        public async Task<List<Team>> GetAllTeams()
+        {
+            return await _client.GetAllTeamsAsync();
+        }
+
+        public async Task<Team> GetTeam(int TeamId)
+        {
+            var teams = await _client.GetAllTeamsAsync();
+            return teams.FirstOrDefault(t => t.TeamID == TeamId);
         }
     }
 }

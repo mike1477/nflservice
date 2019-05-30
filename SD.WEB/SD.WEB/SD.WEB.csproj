@@ -125,6 +125,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NFLStadiumsController.cs" />
+    <Compile Include="Controllers\NFLTeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -133,6 +134,8 @@
     <Compile Include="Services\NFLService.cs" />
     <Compile Include="ViewModels\StadiumsViewModel.cs" />
     <Compile Include="ViewModels\StadiumViewModel.cs" />
+    <Compile Include="ViewModels\TeamsViewModel.cs" />
+    <Compile Include="ViewModels\TeamViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -172,6 +175,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\NFLStadiums\GetAllStadiums.cshtml" />
     <Content Include="Views\NFLStadiums\Stadium.cshtml" />
+    <Content Include="Views\NFLTeams\GetAllTeams.cshtml" />
+    <Content Include="Views\NFLTeams\GetTeam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
