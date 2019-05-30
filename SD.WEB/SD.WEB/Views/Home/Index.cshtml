@@ -2,30 +2,123 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="nfl-stats-banner-home">
+    <div class="container">
+        <div class="row content-banner">
+            <h1>Sports Data Using ASP.NET</h1>
+            <p class="lead">Quickly and easily use FantasyData with just 7 lines of code!</p>
+            <p class="content-banner-buttons">
+             <a href="https://github.com/mike1477/nflservice" target="_blank" class="btn btn-primary btn-lg">Visit GitHub &raquo;</a>
+             <a href="https://fantasydata.com" target="_blank" class="btn btn-primary btn-lg">FantasyData Website &raquo;</a>
+            </p>
+        </div>
+    </div>  
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 top-para-home">
+            <p>
+                The FantasyData Sport Delivery .NET library allows you to easily get any type of sport data supported by our fast API, from a simple game to complex sport stats. We have you covered.
+            </p>
+        </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 top-para-home">
+            <h2>YOUR KEY</h2>
+            <p>
+                When you create your free account you should of got a key.
+                In your web.config file paste the code below inside the
+                <span class="highlight"> &lt; appSettings &gt;</span>
+            </p>
+            <div class="jumbotron code-container">
+                <code> &lt;add key="SportDataKey" value="[ YOUR API KEY]" /&gt;</code>
+            </div>
+
+            <p class="content-code-buttons">
+                <a href="https://fantasydata.com/user/register" target="_blank" class="btn btn-success btn-lg">Sign up & Get Key &raquo;</a>
+                <a href="https://github.com/mike1477/nflservice/blob/master/SD.WEB/SD.WEB/Web.config" target="_blank" class="btn btn-success btn-lg">GitHub Example &raquo;</a>
+            </p>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 top-para-home">
+            <h2>CONTROLLER</h2>
+            <p>
+                At the top of the <span class="highlight"> HomeController.cs </span> add the code below.
+            </p>
+            <div class="jumbotron code-container">
+                <code>
+                    private readonly string SportDataKey = WebConfigurationManager.AppSettings["SportDataKey"];<br />
+                    private NFLv3StatsClient _client;<br />
+
+                    public HomeController()<br />
+                    {
+                    _client = new NFLv3StatsClient(SportDataKey);
+                    }
+                </code>
+            </div>
+            <p>
+                There are many ways to intergrate APIs into you application. This is just one way.
+                Open your <span class="highlight"> HomeController.cs </span> and paste code below into the Index method.
+            </p>
+            <div class="jumbotron code-container">
+                <code>
+                    var stadiums = _client.GetStadiums();<br>
+                    return View(stadiums);
+                </code>
+            </div>
+
+            <p class="content-code-buttons">
+                <a href="https://github.com/mike1477/nflservice/tree/master/SD.WEB/SD.WEB/Controllers" target="_blank" class="btn btn-success btn-lg">GitHub Example &raquo;</a>
+            </p>
+        </div>
+
     </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 top-para-home">
+            <h2>View</h2>
+            <p>
+                Inside the <span class="highlight"> Index.cshtml</span> file add the code below
+            </p>
+            <div class="jumbotron code-container">
+                <code>
+
+                    &lt;h3&gt;Entire list of stadiums in the NFL&lt;/h3&gt; <br />
+
+
+                    &lt;table style="width:100%" class="table"&gt;<br />
+                    &lt;tr&gt;<br />
+                    &lt;th&gt;Name&lt;/th&gt;<br />
+                    &lt;th>City&lt;/th>
+                    &lt;th&gt;PlayingSurface&lt;/th&gt;<br />
+                    &lt;th&gt;&lt;/th&gt;<br />
+                    &lt;/tr&gt;<br />
+                    &#64;foreach (var stadium in Model.Stadiums)<br />
+                    {
+                    &lt; tr &gt;<br />
+                    &lt; td &gt; &#64;stadium.Name &lt; td &gt;<br />
+                    &lt; td &gt; &#64;stadium.City &lt;/ td &gt;<br />
+                    &lt; td &gt; &#64;stadium.PlayingSurface &lt;/ td &gt;<br />
+                    &lt; td &gt; &#64;Html.ActionLink("Location", "GetStadium", new { id = stadium.StadiumID }, new { &#64;class = "navbar-brand btn-success" }) &lt;/ td &gt;<br />
+                    &lt;/ tr &gt;
+                    }
+
+
+                    &lt;/table&gt;<br />
+
+
+                </code>
+            </div>
+
+            <p class="content-code-buttons">
+                <a href="https://github.com/mike1477/nflservice/tree/master/SD.WEB/SD.WEB/Views" target="_blank" class="btn btn-success btn-lg">GitHub Example &raquo;</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="email">
+    <p class="email-button">
+        <a href="https://sportsdata.io/contact-us" target="_blank" class="btn btn-warning btn-lg glyphicon glyphicon-envelope"></a>
+    </p>
 </div>

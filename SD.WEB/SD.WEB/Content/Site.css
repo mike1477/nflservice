@@ -5,8 +5,8 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +21,50 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.nfl-stats-banner-home {
+    background-color: #158cba;
+}
+.content-banner{
+    text-align:center;
+    padding:50px;
+}
+.content-banner h1{
+    color:aliceblue;
+    font-weight:bold;
+    font-size:50px;
+}
+.content-banner p{
+    color:#fff;
+    font-size: 30px;
+}
+.content-banner-buttons a{
+    font-size: 24px;
+    padding: 28px;
+}
+.top-para-home {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+.highlight{
+    background-color: yellowgreen;
+}
+.code-container {
+    text-align: left;
+}
+.email-button{
+    position:fixed;
+    right:50px;
+    bottom:50px;
+}
+.email-button a {
+    display: block;
+    padding: 20px 15px;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+}
+.glyphicon {
+    font-size: 30px;
 }
